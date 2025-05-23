@@ -6,7 +6,7 @@ const options = {
         info: {
             title: 'Book Store APIs',
             version: '1.0.0',
-            description: 'APIs for managing books'
+            description: 'APIs for managing orders'
         },
     },
     apis: ['./routes/*.js'],

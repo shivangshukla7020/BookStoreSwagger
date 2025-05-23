@@ -1,17 +1,15 @@
 const express = require('express');
-const bookRoutes = require('./routes/bookRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const swaggerui = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swaggerConfig');
 
 const app = express();
-const PORT = 3001
+const PORT = 3002;
 
 app.use(express.json());
-app.use('/books',bookRoutes);
+app.use('/orders',orderRoutes);
 app.use('/api-docs',swaggerui.serve, swaggerui.setup(swaggerSpec));
-app.use('/uploads', express.static('uploads'));
-
 
 app.listen(PORT,()=>{
-    console.log(`Server is running at post ${PORT}`);
+    console.log(`Server is running at port ${PORT}`);
 })
