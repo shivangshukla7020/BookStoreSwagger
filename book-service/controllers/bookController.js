@@ -1,5 +1,4 @@
 const books = require('../models/bookModel');
-const fs = require('fs');
 
 const addBook = (req, res)=>{
     const book = {id : books.length+1, ...req.body};
