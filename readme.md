@@ -6,8 +6,6 @@ This is a microservices-based Book Store API built with **Node.js**, **Express**
 - `order-service`
 - `user-service`
 
-An **API Gateway** provides a unified Swagger UI for all microservices.
-
 ---
 
 ## 🧩 Microservices Overview
