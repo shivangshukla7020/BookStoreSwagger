@@ -11,5 +11,5 @@ app.use('/orders',orderRoutes);
 app.use('/api-docs',swaggerui.serve, swaggerui.setup(swaggerSpec));
 
 app.listen(PORT,()=>{
-    console.log(`Server is running at port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 })

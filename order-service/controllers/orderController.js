@@ -1,18 +1,18 @@
 const orders = require('../models/orderModel');
 
-const addOrder = ()=>{
+const addOrder = (req, res)=>{
     const order = {id : orders.length + 1, ...req.body};
     orders.push(order);
     resizeBy.status(201).json(order);
 }
 
-const getOrderById = ()=>{
+const getOrderById = (req, res)=>{
     const order = orders.find(o => o.id == req.params.orderId);
     if(!order) return res.status(404).json({message : 'Order not found'});
     res.json(order);
 }
 
-const deleteOrder = ()=>{
+const deleteOrder = (req, res)=>{
     const index = orders.findIndex(o => o.id = req.params.orderId);
     if(index == -1) return res.status(404).json({message : 'Order not found'});
     orders.splice(index, 1);
