@@ -3,10 +3,10 @@ const orders = require('../models/orderModel');
 const addOrder = (req, res)=>{
     const order = {id : orders.length + 1, ...req.body};
     orders.push(order);
-    resizeBy.status(201).json(order);
+    res.status(201).json(order);
 }
 
-const getOrderById = (req, res)=>{
+const findById = (req, res)=>{
     const order = orders.find(o => o.id == req.params.orderId);
     if(!order) return res.status(404).json({message : 'Order not found'});
     res.json(order);
@@ -20,12 +20,10 @@ const deleteOrder = (req, res)=>{
 }
 
 const getInventory = (req, res) => {
-  // Example: Return count of orders by status
   const inventory = orders.reduce((acc, order) => {
     acc[order.status] = (acc[order.status] || 0) + 1;
     return acc;
   }, {});
   res.json(inventory);
 };
-
-module.exports = {addOrder, getOrderById, deleteOrder, getInventory };
+module.exports = {addOrder, findById, deleteOrder, getInventory };

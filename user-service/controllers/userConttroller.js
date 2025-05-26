@@ -1,9 +1,16 @@
 const users = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
-const addUser = (req, res) =>{
+const addUser =async (req, res) =>{
     const user = {id : users.length + 1, ...req.body};
-    users.push(user);
-    res.json(user);
+    try{
+        user.password = await bcrypt.hash(user.password,10);
+        users.push(user);
+        res.json(user);
+    }
+    catch(err){
+        console.log("Failed to hash password");
+    }
 }
 
 const updateUser = (req, res)=>{

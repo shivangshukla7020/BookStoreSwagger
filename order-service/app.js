@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3002;
 
 app.use(express.json());
-app.use('/orders',orderRoutes);
+app.use('/order',orderRoutes);
 app.use('/api-docs',swaggerui.serve, swaggerui.setup(swaggerSpec));
 
 app.listen(PORT,()=>{

@@ -13,7 +13,7 @@ const updateBook = (req, res)=>{
     res.json(req.body);
 }
 
-const getBookById = (req, res)=>{
+const findById = (req, res)=>{
     const book = books.find(b => b.id == req.params.bookId);
     if(!book) return res.status(404).json({message : 'Book not found'});
     res.json(book);
@@ -33,11 +33,12 @@ const findByStatus = (req, res)=>{
 }
 
 const updateBookForm = (req, res)=>{
-    const {name, status} = req.body;
+    const {name, status, genre} = req.body;
     const book = books.find(b => b.id == req.params.bookId);
     if(!book) return res.status(404).json({message : 'Book not found'});
     book.name = name;
     book.status = status;
+    book.genre = genre;
     res.json(book);
 }
 
@@ -49,4 +50,4 @@ const uploadImage = (req, res)=>{
     res.json({message : 'Image uploaded', path: book.image});
 }
 
-module.exports = {addBook, updateBook, getBookById, deleteBook, findByStatus, updateBookForm, uploadImage};
+module.exports = {addBook, updateBook, findById, deleteBook, findByStatus, updateBookForm, uploadImage};

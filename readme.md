@@ -26,7 +26,7 @@ This is a microservices-based Book Store API built with **Node.js**, **Express**
 |------------------|-------------------------------|--------|
 | `addBook`        | `/books`                      | POST   |
 | `updateBook`     | `/books`                      | PUT    |
-| `getBookById`    | `/books/:bookId`              | GET    |
+| `findById`       | `/books/:bookId`              | GET    |
 | `deleteBook`     | `/books/:bookId`              | DELETE |
 | `findByStatus`   | `/books/findByStatus`         | GET    |
 | `updateBookForm` | `/books/:bookId`              | POST   |

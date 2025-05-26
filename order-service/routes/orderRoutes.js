@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { addOrder, getOrderById, deleteOrder, getInventory} = require('../controllers/orderController');
+const { addOrder, findById, deleteOrder, getInventory} = require('../controllers/orderController');
 
 /**
  * @swagger
  * tags:
- *   name: Order
+ *   name: Orders
  *   description: Operations related to orders
  */
 
@@ -14,7 +14,7 @@ const { addOrder, getOrderById, deleteOrder, getInventory} = require('../control
  * /order:
  *   post:
  *     summary: Place a new order
- *     tags: [Order]
+ *     tags: [Orders]
  *     requestBody:
  *       required: true
  *       content:
@@ -41,8 +41,8 @@ router.post('/', addOrder);
  * @swagger
  * /order/{orderId}:
  *   get:
- *     summary: Find order by ID
- *     tags: [Order]
+ *     summary: Find order using ID
+ *     tags: [Orders]
  *     parameters:
  *       - in: path
  *         name: orderId
@@ -56,14 +56,14 @@ router.post('/', addOrder);
  *       404:
  *         description: Order not found
  */
-router.get('/:orderId', getOrderById);
+router.get('/:orderId', findById);
 
 /**
  * @swagger
  * /order/{orderId}:
  *   delete:
  *     summary: Delete order by ID
- *     tags: [Order]
+ *     tags: [Orders]
  *     parameters:
  *       - in: path
  *         name: orderId
@@ -84,7 +84,7 @@ router.delete('/:orderId', deleteOrder);
  * /order/inventory:
  *   get:
  *     summary: Get inventory status
- *     tags: [Order]
+ *     tags: [Orders]
  *     responses:
  *       200:
  *         description: Inventory retrieved

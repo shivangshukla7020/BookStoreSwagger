@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { 
-    addBook, 
-    updateBook, 
-    findByStatus, 
-    getBookById, 
-    deleteBook, 
-    updateBookForm, 
-    uploadImage 
-} = require('../controllers/bookController');
+const { addBook, updateBook, findByStatus, findById, deleteBook, updateBookForm, uploadImage } = require('../controllers/bookController');
 const upload = multer({ dest: 'uploads/' });
+
+
+/**
+ * @swagger
+ * tags:
+ *   name: Books
+ *   description: Operations related to books
+ */
 
 /**
  * @swagger
  * /book:
  *   post:
  *     summary: Add a new book
- *     tags: [Book]
+ *     tags: [Books]
  *     requestBody:
  *       required: true
  *       content:
@@ -27,14 +27,19 @@ const upload = multer({ dest: 'uploads/' });
  *             required:
  *               - name
  *               - status
+ *               - genre
  *             properties:
  *               name:
  *                 type: string
  *               status:
  *                 type: string
+ *               genre:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Book created successfully
+ *       400:
+ *         description: Error
  */
 router.post('/', addBook);
 
@@ -42,8 +47,8 @@ router.post('/', addBook);
  * @swagger
  * /book:
  *   put:
- *     summary: Update an existing book
- *     tags: [Book]
+ *     summary: Update existing book
+ *     tags: [Books]
  *     requestBody:
  *       required: true
  *       content:
@@ -54,12 +59,15 @@ router.post('/', addBook);
  *               - id
  *               - name
  *               - status
+ *               - genre
  *             properties:
  *               id:
  *                 type: integer
  *               name:
  *                 type: string
  *               status:
+ *                 type: string
+ *               genre:
  *                 type: string
  *     responses:
  *       200:
@@ -74,7 +82,7 @@ router.put('/', updateBook);
  * /book/findByStatus:
  *   get:
  *     summary: Finds books by status
- *     tags: [Book]
+ *     tags: [Books]
  *     parameters:
  *       - in: query
  *         name: status
@@ -91,8 +99,8 @@ router.get('/findByStatus', findByStatus);
  * @swagger
  * /book/{bookId}:
  *   get:
- *     summary: Get book by ID
- *     tags: [Book]
+ *     summary: Find book by it' ID
+ *     tags: [Books]
  *     parameters:
  *       - in: path
  *         name: bookId
@@ -105,14 +113,14 @@ router.get('/findByStatus', findByStatus);
  *       404:
  *         description: Book not found
  */
-router.get('/:bookId', getBookById);
+router.get('/:bookId', findById);
 
 /**
  * @swagger
  * /book/{bookId}:
  *   delete:
  *     summary: Delete a book
- *     tags: [Book]
+ *     tags: [Books]
  *     parameters:
  *       - in: path
  *         name: bookId
@@ -132,7 +140,7 @@ router.delete('/:bookId', deleteBook);
  * /book/{bookId}:
  *   post:
  *     summary: Update book using form data
- *     tags: [Book]
+ *     tags: [Books]
  *     parameters:
  *       - in: path
  *         name: bookId
@@ -162,8 +170,8 @@ router.post('/:bookId', updateBookForm);
  * @swagger
  * /book/{bookId}/uploadImage:
  *   post:
- *     summary: Upload book cover image
- *     tags: [Book]
+ *     summary: Upload book image
+ *     tags: [Books]
  *     parameters:
  *       - in: path
  *         name: bookId

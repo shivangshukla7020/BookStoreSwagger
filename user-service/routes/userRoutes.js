@@ -4,24 +4,9 @@ const router = express.Router();
 
 /**
  * @swagger
- * components:
- *   schemas:
- *     User:
- *       type: object
- *       required:
- *         - id
- *         - name
- *         - email
- *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the user
- *         name:
- *           type: string
- *           description: The user's name
- *         email:
- *           type: string
- *           description: The user's email
+ * tags:
+ *   name: Users
+ *   description: Operations related to users
  */
 
 /**
@@ -35,14 +20,17 @@ const router = express.Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
  *     responses:
  *       200:
- *         description: The created user.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
+ *         description: User created successfully
  */
 router.post('/', addUser);
 
@@ -56,15 +44,18 @@ router.post('/', addUser);
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/User'
+ *          schema:
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
  *     responses:
  *       200:
- *         description: The updated user.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
+ *         description: User updated successfully
  *       404:
  *         description: User not found.
  */
@@ -82,14 +73,10 @@ router.put('/', updateUser);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID of the user to retrieve
+ *         description: ID of user to find
  *     responses:
  *       200:
  *         description: The user data
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
  *       404:
  *         description: User not found
  */
