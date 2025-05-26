@@ -24,31 +24,31 @@ This is a microservices-based Book Store API built with **Node.js**, **Express**
 
 | Function         | Endpoint                      | Method |
 |------------------|-------------------------------|--------|
-| `addBook`        | `/books`                      | POST   |
-| `updateBook`     | `/books`                      | PUT    |
-| `findById`       | `/books/:bookId`              | GET    |
-| `deleteBook`     | `/books/:bookId`              | DELETE |
-| `findByStatus`   | `/books/findByStatus`         | GET    |
-| `updateBookForm` | `/books/:bookId`              | POST   |
-| `uploadImage`    | `/books/:bookId/uploadImage`  | POST   |
+| `addBook`        | `/book`                      | POST   |
+| `updateBook`     | `/book`                      | PUT    |
+| `findById`       | `/book/:bookId`              | GET    |
+| `deleteBook`     | `/book/:bookId`              | DELETE |
+| `findByStatus`   | `/book/findByStatus`         | GET    |
+| `updateBookForm` | `/book/:bookId`              | POST   |
+| `uploadImage`    | `/book/:bookId/uploadImage`  | POST   |
 
 ### 🛒 Order Service (`http://localhost:3002`)
 
 | Function         | Endpoint            | Method |
 |------------------|---------------------|--------|
-| `addOrder`       | `/orders`           | POST   |
-| `findById`       | `/orders/:orderId`  | GET    |
-| `deleteOrder`    | `/orders/:orderId`  | DELETE |
-| `getInventory`   | `/orders/inventory` | GET    |
+| `addOrder`       | `/order`           | POST   |
+| `findById`       | `/order/:orderId`  | GET    |
+| `deleteOrder`    | `/order/:orderId`  | DELETE |
+| `getInventory`   | `/order/inventory` | GET    |
 
 ### 👤 User Service (`http://localhost:3003`)
 
 | Function       | Endpoint           | Method |
 |----------------|--------------------|--------|
-| `addUser`      | `/users`           | POST   |
-| `updateUser`   | `/users`           | PUT    |
-| `findById`     | `/users/:userId`   | GET    |
-| `deleteUser`   | `/users/:userId`   | DELETE |
+| `addUser`      | `/user`           | POST   |
+| `updateUser`   | `/user`           | PUT    |
+| `findById`     | `/user/:userId`   | GET    |
+| `deleteUser`   | `/user/:userId`   | DELETE |
 
 ---
 
