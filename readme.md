@@ -37,7 +37,7 @@ This is a microservices-based Book Store API built with **Node.js**, **Express**
 | Function         | Endpoint            | Method |
 |------------------|---------------------|--------|
 | `addOrder`       | `/orders`           | POST   |
-| `getOrderById`   | `/orders/:orderId`  | GET    |
+| `findById`       | `/orders/:orderId`  | GET    |
 | `deleteOrder`    | `/orders/:orderId`  | DELETE |
 | `getInventory`   | `/orders/inventory` | GET    |
 
