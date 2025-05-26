@@ -45,10 +45,10 @@ This is a microservices-based Book Store API built with **Node.js**, **Express**
 
 | Function       | Endpoint           | Method |
 |----------------|--------------------|--------|
-| `addUser`      | `/user`           | POST   |
-| `updateUser`   | `/user`           | PUT    |
-| `findById`     | `/user/:userId`   | GET    |
-| `deleteUser`   | `/user/:userId`   | DELETE |
+| `addUser`      | `/users`           | POST   |
+| `updateUser`   | `/users`           | PUT    |
+| `findById`     | `/users/:userId`   | GET    |
+| `deleteUser`   | `/users/:userId`   | DELETE |
 
 ---
 
